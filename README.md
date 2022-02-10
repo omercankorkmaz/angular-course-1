@@ -3,7 +3,11 @@
 
 This repository contains the code of the [Angular Core Deep Dive](https://angular-university.io/course/angular-course).
 
+<<<<<<< HEAD
 This course repository is updated to Angular v13:
+=======
+This course repository is updated to Angular v13.
+>>>>>>> a803dc63418048228b11c24aca9a29e820432a3b
 
 ![Angular Core Deep Dive](https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-core-in-depth-small.png)
 
