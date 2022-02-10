@@ -1,44 +1,54 @@
-<div class="course-card" *ngIf="course" #container>
+<ng-container *ngIf="course">
 
-  <div class="course-title">
-
-      {{ cardIndex || '' + ' ' + course.description }}
-
-  </div>
-
-  <ng-content select="course-image"
-              *ngIf="course.iconUrl"></ng-content>
-
-  <div class="course-description">
-
-    Edit Title: <input #courseTitle [value]="course.description"
-                       (keyup)="onTitleChanged(courseTitle.value)">
-
-  </div>
-
-  <div class="course-category">
-
-    <div class="category" i18n>
-
-        {
-            course.category,
-            select,
-            BEGINNER {Beginner}
-            INTERMEDIATE {Intermediate}
-            ADVANCED {Advanced}
-        }
-
+  <!-- <div *ngFor="let pair of course | keyvalue">
+    {{ pair.key }}
+    {{ pair.value }}
+  </div> -->
+  
+  <div 
+    class="course-card" 
+    #container 
+    [ngClass]="getCourseCardClasses()"
+    [ngStyle]="getCourseCardStyles()"
+  >
+  
+    <div class="course-title">
+        {{ (cardIndex + 1) + '. ' + course.description | titlecase }}
+  
     </div>
+  
+    <ng-container *ngIf="!dontShowImg">    
+      <ng-content 
+        select="course-image"
+        *ngIf="course.iconUrl; else noImage"
+      ></ng-content>
+    
+      <ng-template #noImage>
+        No image available
+      </ng-template>
+    </ng-container>
+  
 
-
+    <div class="course-description">
+      Edit Title: <input #courseTitle [value]="course.description"
+                         (keyup)="onTitleChanged(courseTitle.value)">
+    </div>
+    <div class="course-category" [ngSwitch]="course.category">
+      <div class="category">
+        <ng-container *ngSwitchCase="'BEGINNER'">
+          beginar
+        </ng-container>
+        <ng-container *ngSwitchCase="'INTERMEDIATE'">
+          inter
+        </ng-container>
+        <ng-container *ngSwitchCase="'ADVANCED'">
+          edvensd
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          any
+        </ng-container>
+      </div>
+    </div>
+    <button (click)="onSaveClicked(courseTitle.value)">Save Course</button>
   </div>
-
-  <button (click)="onSaveClicked(courseTitle.value)">Save Course</button>
-
-</div>
-
-
-
-
-
-
+</ng-container>  

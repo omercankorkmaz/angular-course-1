@@ -4,13 +4,13 @@
 }
 
 :host.is-first {
-  border-top: 2px solid grey;
-  padding-top: 20px;
+  /* border-top: 2px solid grey;
+  padding-top: 20px; */
+  border: 2px solid red;
 }
 
 :host.is-last {
-  border-bottom: 2px solid grey;
-  padding-top: 20px;
+  border: 2px solid blue;
 }
 
 :host.is-even {
@@ -50,7 +50,6 @@
 }
 
 .course-card.beginner {
-  background: lightsalmon;
+  border: 2px solid lightsalmon;
 }
-
 

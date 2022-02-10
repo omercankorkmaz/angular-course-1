@@ -6,6 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {CoursesModule} from './courses/courses.module';
 import {CourseTitleComponent} from './course-title/course-title.component';
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import {CourseTitleComponent} from './course-title/course-title.component';
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        CoursesModule
+        CoursesModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent],

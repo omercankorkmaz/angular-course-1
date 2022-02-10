@@ -31,7 +31,7 @@ export class CourseCardComponent implements  OnInit {
     @Output('courseChanged')
     courseEmitter = new EventEmitter<Course>();
 
-
+    dontShowImg: boolean = false;
 
 
     constructor(private coursesService: CoursesService,
@@ -41,7 +41,6 @@ export class CourseCardComponent implements  OnInit {
     }
 
     ngOnInit() {
-
 
     }
 
@@ -60,5 +59,20 @@ export class CourseCardComponent implements  OnInit {
 
     }
 
+
+    getCourseCardClasses() {
+        return {
+            'beginner': this.course.category === 'BEGINNER'
+        }
+    }
+
+    getCourseCardStyles() {
+        if (this.course.category === 'BEGINNER') {
+            this.dontShowImg = true;
+            return {
+                'background-image': `url(${this.course.iconUrl})`
+            }
+        }
+    }
 
 }
