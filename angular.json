@@ -41,13 +41,6 @@
               {
                 "input": "node_modules/document-register-element/build/document-register-element.js",
                 "inject": true
-<<<<<<< HEAD
-              },
-              {
-                "input": "node_modules/document-register-element/build/document-register-element.js",
-                "inject": true
-=======
->>>>>>> a803dc63418048228b11c24aca9a29e820432a3b
               }
             ],
             "vendorChunk": true,
@@ -157,10 +150,6 @@
   },
   "defaultProject": "angular-course",
   "cli": {
-<<<<<<< HEAD
-    "analytics": "e878a578-eb4f-4c7c-bbaf-6f0c4ac42135"
-=======
     "analytics": "647b1679-fed7-4615-8081-7ee9ee7832fb"
->>>>>>> a803dc63418048228b11c24aca9a29e820432a3b
   }
 }

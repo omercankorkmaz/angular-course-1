@@ -14,8 +14,15 @@
 
   </div>
 
-  <div class="courses">
+  <div class="courses" #containerdiv>
 <!-- let course of courses | slice:0:3;  -->
+
+
+  <ng-template #blankImage let-courseName="desc">
+    <img src="assets/empty-image.png">
+    <p class="warn">{{courseName}} has no image</p>
+  </ng-template>
+
     <course-card 
       *ngFor="
         let course of courses; 
@@ -35,13 +42,26 @@
         'is-odd': isOdd,
         'is-even': isEven
       }"
+      [noImageTemplate]="blankImage"
     >
     <!-- [class.is-first]="isFirst"
     [class.is-last]="isLast"
     [class.is-odd]="isOdd"
     [class.is-even]="isEven" -->
 
+    <label>lon</label>
+
+    <div>
+      name
+    </div>
+
       <course-image [src]="course && course.iconUrl"></course-image>
+
+      <div>
+        omer
+      </div>
+
+      <span>lan</span>
 
     </course-card>
 

@@ -11,23 +11,26 @@
     [ngClass]="getCourseCardClasses()"
     [ngStyle]="getCourseCardStyles()"
   >
+
+    <ng-content></ng-content>
+
+    <ng-content 
+      select="div" 
+    ></ng-content>
   
-    <div class="course-title">
+    <div class="course-title"> 
         {{ (cardIndex + 1) + '. ' + course.description | titlecase }}
   
     </div>
   
-    <ng-container *ngIf="!dontShowImg">    
-      <ng-content 
-        select="course-image"
-        *ngIf="course.iconUrl; else noImage"
-      ></ng-content>
-    
-      <ng-template #noImage>
-        No image available
-      </ng-template>
-    </ng-container>
-  
+    <ng-container *ngTemplateOutlet="course.iconUrl ? withImage : noImageTemplate; context: { desc: course.description.toUpperCase() }"></ng-container>
+
+    <ng-template #withImage>     <!-- select=".class-name" -->
+      <ng-content select="course-image"></ng-content>
+    </ng-template>
+
+    <noImageTemplate></noImageTemplate>
+
 
     <div class="course-description">
       Edit Title: <input #courseTitle [value]="course.description"
