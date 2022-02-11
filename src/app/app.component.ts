@@ -29,4 +29,8 @@ export class AppComponent implements AfterViewInit {
 
     }
 
+    onToggle(event) {
+        console.log(event);
+    }
+
 }
