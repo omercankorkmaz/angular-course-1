@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren
 import {COURSES} from '../db-data';
 import {Course} from './model/course';
 import {CourseCardComponent} from './course-card/course-card.component';
+import { HighlightedDirective } from './directives/highlighted.directive';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,20 @@ import {CourseCardComponent} from './course-card/course-card.component';
 })
 export class AppComponent implements AfterViewInit {
 
+  // structural directives -> *
+
     courses = COURSES;
 
 
     @ViewChildren(CourseCardComponent, {read: ElementRef})
     cards : QueryList<ElementRef>;
 
+    // @ViewChild(HighlightedDirective)
+    // highlighter: HighlightedDirective;
+
+    @ViewChild(CourseCardComponent, { read: HighlightedDirective })
+    highlighter: HighlightedDirective;
+  
 
     constructor() {
 
@@ -31,6 +40,7 @@ export class AppComponent implements AfterViewInit {
 
     onToggle(event) {
         console.log(event);
+        console.log(this.highlighter);
     }
 
 }

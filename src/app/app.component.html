@@ -5,24 +5,66 @@
 
 </div>
 
+<div class="salmon-theme">
 
-
-<div class="courses" *ngIf="courses[0] as course">
-    <!-- [highlighted]="false" -->
-    <course-card 
-      [highlighted]="false"
-      (toggleHighlight)="onToggle($event)"
-      (courseSelected)="onCourseSelected($event)"
-      [course]="course">
-
-        <course-image [src]="course.iconUrl"></course-image>
-
-        <div class="course-description">
-            {{ course.longDescription }}
+    <div class="course-card">
+        TEST
+    </div>
+    <div class="courses" *ngIf="courses[0] as course">
+        <course-card 
+            #highlighter="hlDir"
+            highlighted
+            (toggleHighlight)="onToggle($event)"
+            (courseSelected)="onCourseSelected($event)"
+            [course]="course"
+          >
+    
+            <course-image 
+                *ngxUnless="false"
+                [src]="course.iconUrl" 
+                (click)="highlighter.toggle()"
+            ></course-image>
+    
+            <div class="course-description">
+                {{ course.longDescription }}
+            </div>
+    
+        </course-card>
+    
+    </div>
+    equals to (expanded)
+    <ng-template [ngIf]="courses[0]" let-course>
+        <div class="courses">
+            <course-card 
+                #highlighter="hlDir"
+                highlighted
+                (toggleHighlight)="onToggle($event)"
+                (courseSelected)="onCourseSelected($event)"
+                [course]="course"
+            >
+    
+                <course-image 
+                    *ngxUnless="false"
+                    [src]="course.iconUrl" 
+                    (click)="highlighter.toggle()"
+                ></course-image>
+    
+    
+                <div class="course-description">
+                    {{ course.longDescription }}
+                </div>
+    
+            </course-card>
+    
         </div>
-
-    </course-card>
-
-</div>
-
-
+    </ng-template>
+    
+    
+    <div *ngIf="true">
+        omer
+    </div>
+    equals to (expanded)
+    <ng-template [ngIf]="true">
+        <div>omer</div>
+    </ng-template>
+</div>    
